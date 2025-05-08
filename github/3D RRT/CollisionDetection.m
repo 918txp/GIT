@@ -1,0 +1,30 @@
+function collisionFlag = CollisionDetection(cubeInfo, cylinderInfo, sphereInfo, pp ,newCoor, step)
+    % CollisionDetection: 检测两点之间的路径是否与任何障碍物发生碰撞
+    % 参数：
+    % - cubeInfo: 长方体障碍物信息
+    % - cylinderInfo: 圆柱体障碍物信息
+    % - sphereInfo: 球形障碍物信息
+    % - point1, point2: 两个待检测点
+    % - step: 步长，用于分段检测
+    
+    % 初始化碰撞标志
+    collisionFlag = 0;
+    
+    % 检查路径是否与长方体碰撞
+    if isCubeCollisionR(cubeInfo, pp,newCoor, step)
+        collisionFlag = 1;
+        return;
+    end
+    
+    % 检查路径是否与圆柱体碰撞
+    if isCylinderCollisionR(cylinderInfo, pp,newCoor, step)
+        collisionFlag = 1;
+        return;
+    end
+    
+    % 检查路径是否与球形障碍物碰撞
+    if isSphereCollisionR(sphereInfo, pp,newCoor, step)
+        collisionFlag = 1;
+        return;
+    end
+end

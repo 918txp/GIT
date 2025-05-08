@@ -1,0 +1,6 @@
+function cost = CalcuDistance(newCoor,pp)
+    % 计算三维空间中两点之间的欧几里得距离
+    cost = sqrt((newCoor(1)-pp(1))^2 + ...
+                (newCoor(2)-pp(2))^2 + ...
+                (newCoor(3)-pp(3))^2);
+end
